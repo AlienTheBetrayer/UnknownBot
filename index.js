@@ -24,4 +24,4 @@ client.on("message", msg => { // message event
     
 });
 
-client.login(config.token);
+client.login(process.env.BOT_TOKEN);
