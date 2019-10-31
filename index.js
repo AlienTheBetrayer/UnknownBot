@@ -14,6 +14,7 @@ function sendEmbed(_msg, eTitle, eContent, eColor) {
 
 client.on("ready", () => { // setup
     client.user.setActivity("🎃 Halloween 🎃", {type: "STREAMING", url: "https://www.twitch.tv/alienbetrayer"});
+    console.log("Client is ready!");
 });
 
 client.on("message", msg => { // message event
