@@ -1,9 +1,9 @@
-const Discord = require("discord.js");
-const client = new Discord.Client();
+const { Client, RichEmbed } = require("discord.js");
+const client = new Client();
 const config = require("./config.json");  
 
 function sendEmbed(_msg, eTitle, eContent, eColor) {
-    const embed = new Discord.RichEmbed()
+    const embed = new RichEmbed()
     .setTitle(eTitle)
     .setColor(eColor)
     .setDescription(eContent)
