@@ -1,11 +1,14 @@
 const Discord = require("discord.js");
 
 module.exports.run = async(client, message, args) => {
-    const botupt = client.uptime;
-    const hours = Math.round(botupt / 3600 / 1000);
-    const minutes = Math.round(botupt / 60 / 1000);
-    const seconds = Math.round(botupt / 1000);
-    const botuptstr = hours + "h. " + minutes + "m. " + seconds + "s.";
+    let totalSeconds = (client.uptime / 1000);
+    let days = Math.floor(totalSeconds / 86400);
+    let hours = Math.floor(totalSeconds / 3600);
+    totalSeconds %= 3600;
+    let minutes = Math.floor(totalSeconds / 60);
+    let seconds = Math.round(totalSeconds % 60);
+
+    const botuptstr = days + "d. " + hours + "h. " + minutes + "m. " + seconds + "s.";
 
     const embed = new Discord.RichEmbed()
     .setAuthor(message.author.username + "#" + message.author.discriminator, message.author.displayAvatarURL)

@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 
 module.exports.run = async(client, message, args) => {
+    const memb = message.mentions.members.first();
     
     if(args[0] == undefined) {
     const embed = new Discord.RichEmbed()
@@ -14,7 +15,7 @@ module.exports.run = async(client, message, args) => {
     .setColor(message.member.displayHexColor);
     message.channel.send(embed);
     } else {
-        const memb = message.mentions.members.first();
+        if(!memb) return;
         const muser = memb.user;
         const embed = new Discord.RichEmbed()
         .setAuthor(muser.username + "#" + muser.discriminator, muser.displayAvatarURL)
