@@ -29,14 +29,19 @@ module.exports.run = async(client, message, args) => {
         } else if(args[0] == "events") {
             moduleEmbed("Events module", `
             • Welcome / Farewell
-            • Message logging
+            • Message logging(edit/delete)
             `); 
         } else if(args[0] == "help") {
             moduleEmbed("Help module", `
             • $help [$h] - Lists all modules
             • $helpmodule [$hm, $hmodule, $helpm] <module> - Gives information about the module
-            `)
-        }
+            `) 
+        } else if(args[0] == "games") {
+                moduleEmbed("Games module", `
+                •  $rsp <rock/scissors/paper> (2 Player coming soon)
+               `)
+            }
+        
 }
 
 module.exports.config = {

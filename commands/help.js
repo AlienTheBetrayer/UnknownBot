@@ -9,6 +9,7 @@ module.exports.run = async(client, message, args) => {
     • Informative
     • Moderation
     • Events
+    • Games
     `)
     .setFooter("Type #hm <module> to see module's commands")
     .setTimestamp();
