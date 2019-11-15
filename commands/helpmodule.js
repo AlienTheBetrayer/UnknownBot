@@ -33,12 +33,18 @@ module.exports.run = async(client, message, args) => {
             `); 
         } else if(args[0] == "help") {
             moduleEmbed("Help module", `
-            • $help [$h] - Lists all modules
-            • $helpmodule [$hm, $hmodule, $helpm] <module> - Gives information about the module
+            • $help [$h] - Lists all modules.x
+            • $helpmodule [$hm, $hmodule, $helpm] <module> - Gives information about the module.
             `) 
         } else if(args[0] == "games") {
                 moduleEmbed("Games module", `
                 •  $rsp <rock/scissors/paper> (2 Player coming soon)
+                •  $8ball <question> - Answers your question.
+               `)
+            } else if(args[0] == "administration") {
+                moduleEmbed("Games module", `
+                •  $rr <@user> <@role> - Removes role from user.
+                •  $ar <@user> <@role> - Adds role to the user.
                `)
             }
         

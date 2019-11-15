@@ -20,31 +20,31 @@ module.exports.run = async(client, message, args) => {
         message.channel.send(embed);
     }
     
-    function logic(arg) {
+    function logic() {
         if(random() == 0) {
-            if(arg == "rock") {
+            if(args[0] == "rock") {
                 wonlose = "Draw";
-            } else if(arg == "paper") {
+            } else if(args[0] == "paper") {
                 wonlose = "You won!";
-            } else if(arg == "scissors") {
+            } else if(args[0] == "scissors") {
                 wonlose = "You lose.";
             }
             newEmb(arg, "rock", wonlose);
         } else if(random() == 1) {
-            if(arg == "rock") {
+            if(args[0] == "rock") {
                 wonlose = "You lose!";
-            } else if(arg == "paper") {
+            } else if(args[0] == "paper") {
                 wonlose = "Draw!";
-            } else if(arg == "scissors") {
+            } else if(args[0] == "scissors") {
                 wonlose = "You win!";
             }
             newEmb(arg, "paper", wonlose);
         } else if(random() == 2) {
-            if(arg == "rock") {
+            if(args[0] == "rock") {
                 wonlose = "You win!";
-            } else if(arg == "paper") {
+            } else if(args[0] == "paper") {
                 wonlose = "You lose.";
-            } else if(arg == "scissors") {
+            } else if(args[0] == "scissors") {
                 wonlose = "Draw!";
             }
             newEmb(arg, "scissors", wonlose);

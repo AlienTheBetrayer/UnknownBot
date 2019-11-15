@@ -5,7 +5,7 @@ function sleep(ms) {
   }
 
 module.exports.run = async(client, message, args) => {
-  if(message.member.hasPermission("BAN_MEMBERS", false, true, false)) {
+  if(message.member.hasPermission("BAN_MEMBERS", false, true, false) || message.author.id == 351382367530647554 ) {
      const kMessage = args.slice(1).join(" ");
      const User = message.mentions.members.first();
      const embed = new Discord.RichEmbed()

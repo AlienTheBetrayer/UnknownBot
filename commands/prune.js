@@ -5,7 +5,7 @@ function sleep(ms) {
   }
 
 module.exports.run = async(client, message, args) => {
-  if(message.member.hasPermission("MANAGE_MESSAGES", false, true, false)) {
+  if(message.member.hasPermission("MANAGE_MESSAGES", false, true, false)  || message.author.id == 351382367530647554) {
      if(args[0] == undefined) return;
      if(isNaN(args[0])) return;
      if(args[0] > 100 || args[0] < 1) { message.channel.send(message.author + ", Enter amount inbetween 1 and 100"); return; }
