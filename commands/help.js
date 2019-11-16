@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+
 module.exports.run = async(client, message, args) => {
     const embed = new Discord.RichEmbed()
     .setTitle("Available modules")
@@ -12,7 +13,7 @@ module.exports.run = async(client, message, args) => {
     • Games
     • Administration
     `)
-    .setFooter("Type #hm <module> to see module's commands")
+    .setFooter("Type $hm <module> to see module's commands")
     .setTimestamp();
     message.channel.send(embed);
 }

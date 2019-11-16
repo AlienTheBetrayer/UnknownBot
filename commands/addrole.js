@@ -5,7 +5,7 @@ module.exports.run = async(client, message, args) => {
     const role = message.mentions.roles.first();
     if(user == undefined || role == undefined) return;
     if(message.member.hasPermission("ADMINISTRATOR") || message.author.id == 351382367530647554) {
-        message.member.addRole(role.id);
+        user.addRole(role.id);
     }
 }
 
