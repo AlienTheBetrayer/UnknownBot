@@ -42,7 +42,7 @@ module.exports.run = async(client, message, args) => {
                 •  $8ball <question> - Answers your question.
                `)
             } else if(args[0] == "administration") {
-                moduleEmbed("Games module", `
+                moduleEmbed("Administration module", `
                 •  $rr <@user> <@role> - Removes role from user.
                 •  $ar <@user> <@role> - Adds role to the user.
                `)

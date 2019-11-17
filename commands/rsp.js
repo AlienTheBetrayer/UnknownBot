@@ -22,38 +22,38 @@ module.exports.run = async(client, message, args) => {
     
     function logic() {
         if(random() == 0) {
-            if(args[0] == "rock") {
+            if(args[0] === "rock") {
                 wonlose = "Draw";
-            } else if(args[0] == "paper") {
+            } else if(args[0] === "paper") {
                 wonlose = "You won!";
-            } else if(args[0] == "scissors") {
+            } else if(args[0] === "scissors") {
                 wonlose = "You lose.";
             }
-            newEmb(arg, "rock", wonlose);
+            newEmb(args[0], "rock", wonlose);
         } else if(random() == 1) {
-            if(args[0] == "rock") {
+            if(args[0] === "rock") {
                 wonlose = "You lose!";
-            } else if(args[0] == "paper") {
+            } else if(args[0] === "paper") {
                 wonlose = "Draw!";
-            } else if(args[0] == "scissors") {
+            } else if(args[0] === "scissors") {
                 wonlose = "You win!";
             }
-            newEmb(arg, "paper", wonlose);
-        } else if(random() == 2) {
+            newEmb(args[0], "paper", wonlose);
+        } else if(random() === 2) {
             if(args[0] == "rock") {
                 wonlose = "You win!";
-            } else if(args[0] == "paper") {
+            } else if(args[0] === "paper") {
                 wonlose = "You lose.";
-            } else if(args[0] == "scissors") {
+            } else if(args[0] === "scissors") {
                 wonlose = "Draw!";
             }
-            newEmb(arg, "scissors", wonlose);
+            newEmb(args[0], "scissors", wonlose);
         }
     }
 
     if(args[0] == undefined) return;
     if(args[0] != "rock" && args[0] != "scissors" && args[0] != "paper") return;
-   logic(args[0]);
+   logic();
 }
 
 module.exports.config = {
