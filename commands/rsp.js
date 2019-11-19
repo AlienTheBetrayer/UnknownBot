@@ -21,7 +21,8 @@ module.exports.run = async(client, message, args) => {
     }
     
     function logic() {
-        if(random() == 0) {
+            const r = random();
+        if(r == 0) {
             if(args[0] === "rock") {
                 wonlose = "Draw";
             } else if(args[0] === "paper") {
@@ -30,7 +31,7 @@ module.exports.run = async(client, message, args) => {
                 wonlose = "You lose.";
             }
             newEmb(args[0], "rock", wonlose);
-        } else if(random() == 1) {
+        } else if(r == 1) {
             if(args[0] === "rock") {
                 wonlose = "You lose!";
             } else if(args[0] === "paper") {
@@ -39,7 +40,7 @@ module.exports.run = async(client, message, args) => {
                 wonlose = "You win!";
             }
             newEmb(args[0], "paper", wonlose);
-        } else if(random() === 2) {
+        } else if(r === 2) {
             if(args[0] == "rock") {
                 wonlose = "You win!";
             } else if(args[0] === "paper") {
