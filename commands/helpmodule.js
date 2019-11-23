@@ -19,6 +19,7 @@ module.exports.run = async(client, message, args) => {
             • $random [$rand] <min> <max> - Generates a random number between min and max.
             • $color [$c] <hex color> - Shows the color.
             • $randomcolor [$rc] - Generates random color and shows it.
+            • $calc <equation> - Solves the equation and sends it.
             `);
         } else if(args[0] == "moderation") {
             moduleEmbed("Moderation module", `
