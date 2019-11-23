@@ -11,7 +11,7 @@ module.exports.run = async(client, message, args) => {
     if(args[0] < 0 || args[1] < 0) return;
 
     if(!(args[0] == args[1])) {
-            const randNumber = rand(Math.floor(args[0]), Math.floor(args[1]));
+            const randNumber = rand(Math.floor(args[0]), Math.floor(args[1]) + 1);
             const embed = new Discord.RichEmbed()
             .setTimestamp()
             .setAuthor(message.author.username + "#" + message.author.discriminator, message.author.displayAvatarURL)

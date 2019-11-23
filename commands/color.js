@@ -3,7 +3,7 @@ module.exports.run = async(client, message, args) => {
     const regex = /[0-9A-Fa-f]/g;
     if(args[0] == undefined) return;
     if(!(regex.test(args[0]))) return;
-
+    
     const embed = new Discord.RichEmbed()
     .setTimestamp()
     .setTitle("Color")
