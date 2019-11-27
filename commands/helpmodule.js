@@ -13,7 +13,7 @@ module.exports.run = async(client, message, args) => {
 
         if(args[0] == undefined) return;
         
-        if(args[0] == "informative") {
+        if(args[0].toLowerCase() == "informative") {
             moduleEmbed("Informative module", `
             • $avatar [$av] <optional_user> - Gives avatar of mentioned user, or if none mentioned yourself.
             • $random [$rand] <min> <max> - Generates a random number between min and max.
@@ -21,30 +21,30 @@ module.exports.run = async(client, message, args) => {
             • $randomcolor [$rc] - Generates random color and shows it.
             • $calc <equation> - Solves the equation and sends it.
             `);
-        } else if(args[0] == "moderation") {
+        } else if(args[0].toLowerCase()  == "moderation") {
             moduleEmbed("Moderation module", `
             • $ban <user> <reason> - Bans the user with a reason.
             • $kick <user> <reason> - Kicks the user with a reason.
             • $purge [$prune] <amount> - Deletes 'amount' of messages.
             `);
-        } else if(args[0] == "events") {
+        } else if(args[0].toLowerCase()  == "events") {
             moduleEmbed("Events module", `
             • Welcome / Farewell
             • Message logging(edit/delete)
             `); 
-        } else if(args[0] == "help") {
+        } else if(args[0].toLowerCase()  == "help") {
             moduleEmbed("Help module", `
             • $help [$h] - Lists all modules.x
             • $helpmodule [$hm, $hmodule, $helpm] <module> - Gives information about the module.
             `) 
-        } else if(args[0] == "games") {
+        } else if(args[0].toLowerCase()  == "games") {
                 moduleEmbed("Games module", `
                 •  $rsp <rock/scissors/paper> - Rock Scissors Paper game.
                 •  $8ball <question> - Answers your question.
                 •  $100ball <message> - Says percents on your statement/message.
                 •  $randitem <item1, itemN...> - Gives random item you entered.
                `)
-            } else if(args[0] == "administration") {
+            } else if(args[0].toLowerCase()  == "administration") {
                 moduleEmbed("Administration module", `
                 •  $rr <@user> <@role> - Removes role from user.
                 •  $ar <@user> <@role> - Adds role to the user.
