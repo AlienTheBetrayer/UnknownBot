@@ -38,17 +38,19 @@ function sleep(ms) {
   }
 
 client.on("ready", () => { // setup
-    client.user.setActivity("Stable | " + prefix + "help", {type: "STREAMING", url: "https://www.twitch.tv/alienbetrayer"});
+    client.user.setActivity("🎄Stable | " + prefix + "help🎄", {type: "STREAMING", url: "https://www.twitch.tv/alienbetrayer"});
     console.log("Client is online.");
 });
 
 client.on("message", message => {    // message event
    if(message.author.bot) return;
+   if(message.content.startsWith("$")) {
    const parts = message.content.split(" ");// message parsing
    const command = parts[0];
    const args = parts.slice(1);
    let commandFile = client.commands.get(command.slice(prefix.length)) || client.commands.get(client.aliases.get(command.slice(prefix.length)))
    if(commandFile) commandFile.run(client, message, args)
+   }
 });
 
 client.on("guildMemberAdd", member => {
