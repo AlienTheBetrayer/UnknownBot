@@ -44,6 +44,7 @@ client.on("ready", () => { // setup
 
 client.on("message", message => {    // message event
    if(message.author.bot) return;
+   if(message.channel.type == dm) return;
    if(message.content.startsWith("$")) {
    const parts = message.content.split(" ");// message parsing
    const command = parts[0];
