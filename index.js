@@ -105,6 +105,7 @@ client.on("messageDelete", async message => {
 
 client.on("messageUpdate", async (message, newMessage) => {
     if(message.content === newMessage.content) return;
+    if(message.author.bot) return;
     const logsChannel = findChannel("logs", message);
     let msgChannel = message.guild.channels.find(ch => ch.name === "logs");
     if(logsChannel) {
