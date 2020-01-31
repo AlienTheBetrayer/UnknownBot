@@ -1,0 +1,36 @@
+const Discord = require("discord.js");
+
+module.exports.run = async(client, message, args) => {
+    let toMute = message.mentions.members.first() || message.guild.members.get(args[0]));
+    if(!toMute) return;
+    if(toMute.hasPermission("MANAGE_MESSAGES")) return;
+    let muterole = message.guild.roles.find('name', "muted");
+    if(!muterole) {
+        try {
+            muterole = await message.guild.createRole({
+                name: "muted",
+                color = "#000000",
+                permissions:[]
+            })
+            message.guild.channels.forEach(async (channel, id) => {
+                await channel.overwritePermission(muterole, {
+                    SEND_MESSAGES = false,
+                    ADD_REACTIONS = false,
+                    READ_MESSAGES = false
+                });
+            });
+        } catch(e) {
+            
+        }
+    }
+    let muteTime = args[1];
+    if(!muteTime) return;
+    
+    await(tomute.addRole(muterole.id));
+
+}
+
+module.exports.config = {
+    name: "mute",
+    aliases: []
+}

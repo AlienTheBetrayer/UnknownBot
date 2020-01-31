@@ -15,7 +15,9 @@ module.exports.run = async(client, message, args) => {
      await message.channel.fetchMessages({ limit: args[0] }).then(messages => { 
         message.channel.bulkDelete(messages 
     )});
-  } 
+  } else {
+    message.react('❌');
+  }
 }
 
 module.exports.config = {

@@ -17,8 +17,10 @@ module.exports.run = async(client, message, args) => {
      User.send(embed);
      await sleep(1000);
      User.kick();
-     
-  } 
+     message.react('✅');
+  } else {
+    message.react('❌');
+  }
 }
 
 module.exports.config = {
