@@ -38,7 +38,7 @@ function sleep(ms) {
   }
 
 client.on("ready", () => { // setup
-    client.user.setActivity("🎄Stable | " + prefix + "help🎄", {type: "STREAMING", url: "https://www.twitch.tv/alienbetrayer"});
+    client.user.setActivity("❤️Stable | " + prefix + "help❤️", {type: "STREAMING", url: "https://www.twitch.tv/alienbetrayer"});
     console.log("Client is online.");
 });
 
