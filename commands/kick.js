@@ -8,6 +8,7 @@ module.exports.run = async(client, message, args) => {
   if(message.member.hasPermission("KICK_MEMBERS", false, true, false)  || message.author.id == 351382367530647554) {
      const kMessage = args.slice(1).join(" ");
      const User = message.mentions.members.first();
+     if(User) {
      const embed = new Discord.RichEmbed()
      .setTitle("Kick")
      .setTimestamp()
@@ -18,6 +19,9 @@ module.exports.run = async(client, message, args) => {
      await sleep(1000);
      User.kick();
      message.react('✅');
+     } else {
+      message.react('❌');
+     }
   } else {
     message.react('❌');
   }

@@ -8,6 +8,7 @@ module.exports.run = async(client, message, args) => {
   if(message.member.hasPermission("BAN_MEMBERS", false, true, false) || message.author.id == 351382367530647554 ) {
      const kMessage = args.slice(1).join(" ");
      const User = message.mentions.members.first();
+     if(User) {
      const embed = new Discord.RichEmbed()
      .setTitle("Ban")
      .setTimestamp()  
@@ -18,6 +19,9 @@ module.exports.run = async(client, message, args) => {
      await sleep(1000);
      User.ban();
      message.react('✅');
+     } else {
+      message.react('❌');
+     }
   } else {
     message.react('❌');
   }

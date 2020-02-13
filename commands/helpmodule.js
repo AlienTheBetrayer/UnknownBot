@@ -43,6 +43,7 @@ module.exports.run = async(client, message, args) => {
                 •  $8ball <question> - Answers your question.
                 •  $100ball <message> - Says percents on your statement/message.
                 •  $randitem <item1, itemN...> - Gives random item you entered.
+                •  $lovecalc <lover1, lover2> - Calculates love percentage between two.
                `)
             } else if(args[0].toLowerCase()  == "administration") {
                 moduleEmbed("Administration module", `
