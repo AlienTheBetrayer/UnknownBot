@@ -9,7 +9,6 @@ module.exports.run = async(client, message, args) => {
     .addField("Version", "1.0", true)
     .addField("Uptime", "type $uptime", true)
     .addField("Prefix", "$", true)
-    .addField("")
     message.channel.send(embed);
 }
 

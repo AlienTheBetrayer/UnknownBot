@@ -7,7 +7,11 @@ function ballRandom() {
 }
 
 module.exports.run = async(client, message, args) => {
-    if(args[0] == undefined) return;
+    if(args[0] == undefined) {
+        message.react('❌');
+        message.reply("please provide a message.");
+        return;
+    }
 
     const msg = args.slice(0).join(" ");
     const embed = new Discord.RichEmbed()

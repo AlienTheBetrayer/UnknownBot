@@ -11,21 +11,27 @@ module.exports.run = async(client, message, args) => {
         message.channel.send(embed);
     }
 
-        if(args[0] == undefined) return;
+        if(args[0] == undefined) {
+            message.react('❌');
+            message.reply("please select a module from $help.");
+            return;
+        }
         
         if(args[0].toLowerCase() == "informative") {
             moduleEmbed("Informative module", `
-            • $avatar [$av] <optional_user> - Gives avatar of mentioned user, or if none mentioned yourself.
+            • $avatar [$av] <opt_user> - Gives avatar of mentioned user, or if none mentioned yourself.
             • $random [$rand] <min> <max> - Generates a random number between min and max.
             • $color [$c] <hex color> - Shows the color.
             • $randomcolor [$rc] - Generates random color and shows it.
-            • $calc <equation> - Solves the equation and sends it.
             `);
         } else if(args[0].toLowerCase()  == "moderation") {
             moduleEmbed("Moderation module", `
             • $ban <user> <reason> - Bans the user with a reason.
             • $kick <user> <reason> - Kicks the user with a reason.
             • $purge [$prune] <amount> - Deletes 'amount' of messages.
+            • $mute <@user> <opt_reason> - Mutes user.
+            • $unmute <@user> - Unmutes user.
+            • $warn <@user> <opt_reason> - Warns user with optional reason.
             `);
         } else if(args[0].toLowerCase()  == "events") {
             moduleEmbed("Events module", `
@@ -35,7 +41,7 @@ module.exports.run = async(client, message, args) => {
         } else if(args[0].toLowerCase()  == "help") {
             moduleEmbed("Help module", `
             • $help [$h] - Lists all modules.x
-            • $helpmodule [$hm, $hmodule, $helpm] <module> - Gives information about the module.
+            • $helpmodule [$hm] <module> - Gives information about the module.
             `) 
         } else if(args[0].toLowerCase()  == "games") {
                 moduleEmbed("Games module", `
@@ -47,9 +53,10 @@ module.exports.run = async(client, message, args) => {
                `)
             } else if(args[0].toLowerCase()  == "administration") {
                 moduleEmbed("Administration module", `
-                •  $rr <@user> <@role> - Removes role from user.
-                •  $ar <@user> <@role> - Adds role to the user.
-                •  $sendtochannel [$stc] <#channel> <message> - Sends a message to channel.
+                •  $removerole [$rr] <@user> <role> - Removes role from user.
+                •  $addrole [$ar] <@user> <role> - Adds role to the user.
+                •  $createrole [$cr] <name> <opt_color> - Creates a role with name and color.
+                •  $deleterole [$dr] <role> - Deletes role.
                `)
             }
         

@@ -5,6 +5,7 @@ module.exports.run = async(client, message, args) => {
     const role = message.mentions.roles.first();
     if(user == undefined) {
         message.react('❌');
+        message.reply("please provide a user to give role to")
         return;
     }
     if(message.member.hasPermission("ADMINISTRATOR") || message.author.id == 351382367530647554) {

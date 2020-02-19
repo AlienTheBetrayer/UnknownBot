@@ -13,7 +13,11 @@ const negLove = ["Well... Get rejected kid.", "No love.", "No gf/bf for you..."]
 const neuLove = ["That's nothing.", "No love, no rejection.", "You won't get him/her."]; 
 
 module.exports.run = async(client, message, args) => {  
-    if(args[0] == undefined || args[1] == undefined) return;
+    if(args[0] == undefined || args[1] == undefined) {
+        message.react('❌');
+        message.reply("please provide both lovers.");
+        return;
+    }
     let first, second;
    first = args[0];
    second = args[1];
