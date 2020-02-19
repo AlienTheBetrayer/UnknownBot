@@ -4,33 +4,33 @@ function getRandomInt() {
     return(Math.floor(Math.random() * 100) + 1)
 }
 
-module.exports.run = async(client, message, args) => {
+function getRandomInt_() {
+    return(Math.floor(Math.random() * 2) + 1)
+}
+
+const posLove = ["Lovely!", "Perfect couple!", "That's love!"];
+const negLove = ["Well... Get rejected kid.", "No love.", "No gf/bf for you..."];
+const neuLove = ["That's nothing.", "No love, no rejection.", "You won't get him/her."]; 
+
+module.exports.run = async(client, message, args) => {  
     if(args[0] == undefined || args[1] == undefined) return;
     let first, second;
-    /*
-    let len = (message.mentions.members.array().length);
-    
-    switch(len) {
-        case 0:
-            first = args[0];
-            second = args[1];
-        break;
-        case 1:
-            if(args[0].mentions ) {
-                console.log("it is first man");
-            } else if(args[1].mentions) {
-                console.log("is it second.");
-            }
-        break;
-        case 2:
-            first = message.mentions.members.array()[0].user.username;
-            second = message.mentions.members.array()[1].user.username;
-        break;
-    }
-    */
    first = args[0];
    second = args[1];
    const rand = getRandomInt();
+   const rand_ = getRandomInt_();
+    let Ltext;
+    console.log(rand_);
+    if(rand <= 30) {
+        Ltext = negLove[rand_];
+    } else {
+        if(rand >= 50) {
+            Ltext = posLove[rand_];
+        } else {
+            Ltext = neuLove[rand_];
+        }
+    }
+
     console.log(first);
     console.log(second);
     const embed = new Discord.RichEmbed()
@@ -39,6 +39,8 @@ module.exports.run = async(client, message, args) => {
     .setColor(0x3fb5a1)
     .addField("Lovers", first + " x " + second)
     .addField("Love Calculator", rand + "%")
+    .addField("Message", Ltext)
+    
     message.channel.send(embed)
     .then(function(_MSG) {
         if(rand <= 30) {
