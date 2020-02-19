@@ -49,6 +49,7 @@ module.exports.run = async(client, message, args) => {
                 moduleEmbed("Administration module", `
                 •  $rr <@user> <@role> - Removes role from user.
                 •  $ar <@user> <@role> - Adds role to the user.
+                •  $sendtochannel [$stc] <#channel> <message> - Sends a message to channel.
                `)
             }
         
