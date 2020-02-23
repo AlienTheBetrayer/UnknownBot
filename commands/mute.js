@@ -12,7 +12,7 @@ module.exports.run = async(client, message, args) => {
         message.react('❌');
         return;
     }
-    if(message.member.hasPermission("KICK_MESSAGES", false, true, false)  || message.author.id == 351382367530647554) {
+    if(message.member.hasPermission("KICK_MEMBERS", false, true, false)  || message.author.id == 351382367530647554) {
         let muterole = message.guild.roles.find(role => role.name === "muted");
 
         if(!muterole) {
