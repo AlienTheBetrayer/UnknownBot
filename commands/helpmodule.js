@@ -57,6 +57,7 @@ module.exports.run = async(client, message, args) => {
                 •  $addrole [$ar] <@user> <role> - Adds role to the user.
                 •  $createrole [$cr] <name> <opt_color> - Creates a role with name and color.
                 •  $deleterole [$dr] <role> - Deletes role.
+                •  $sendtochannel [$stc] <#channel> <message> - Sends a message to channel.
                `)
             }
         
