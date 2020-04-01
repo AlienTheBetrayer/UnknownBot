@@ -84,7 +84,7 @@ client.on("messageDelete", async message => {
         .setColor(0x3fb5a1)
         .setTimestamp()
         .setAuthor(message.author.username + "#" + message.author.discriminator, message.author.displayAvatarURL)
-        .setDescription("Deleted a message in " + msgChannel.toString())
+        .setDescription("Deleted a message in " + message.channel)
         .addField("Content", message.content, true);
         msgChannel.send(embed);
     } else {
@@ -96,7 +96,7 @@ client.on("messageDelete", async message => {
         .setColor(0x3fb5a1)
         .setTimestamp()
         .setAuthor(message.author.username + "#" + message.author.discriminator, message.author.displayAvatarURL)
-        .setDescription("Deleted a message in " + msgChannel.toString())
+        .setDescription("Deleted a message in " + message.channel)
         .addField("Content", message.content, true);
         msgChannel.send(embed);
 
@@ -105,7 +105,6 @@ client.on("messageDelete", async message => {
 
 client.on("messageUpdate", async (message, newMessage) => {
     if(message.content === newMessage.content) return;
-    if(message.author.bot) return;
     const logsChannel = findChannel("logs", message);
     let msgChannel = message.guild.channels.find(ch => ch.name === "logs");
     if(logsChannel) {
@@ -113,7 +112,7 @@ client.on("messageUpdate", async (message, newMessage) => {
         .setColor(0x3fb5a1)
         .setTimestamp()
         .setAuthor(message.author.username + "#" + message.author.discriminator, message.author.displayAvatarURL)
-        .setDescription("Message changed in " + msgChannel.toString())
+        .setDescription("Message changed in " + message.channel)    
         .addField("Old message", message.content, true)
         .addField("New Message", newMessage.content, false);
         msgChannel.send(embed);
@@ -126,11 +125,64 @@ client.on("messageUpdate", async (message, newMessage) => {
         .setColor(0x3fb5a1)
         .setTimestamp()
         .setAuthor(message.author.username + "#" + message.author.discriminator, message.author.displayAvatarURL)
-        .setDescription("Message changed in " + msgChannel.toString())
+        .setDescription("Message changed in " + message.channel)
         .addField("Old message", message.content, true)
         .addField("New Message", newMessage.content, false);
         msgChannel.send(embed);
     }
 });
+
+client.on("roleCreate", async role => {
+    const logsChannel = findChannel("logs", role);
+    let msgChannel = role.guild.channels.find(ch => ch.name === "logs");
+
+    if(logsChannel) {
+        const embed = new Discord.RichEmbed()
+        .setColor(0x3fb5a1)
+        .setTimestamp()
+        .setTitle("New role has been created")
+        .addField("Role name", role.name)
+        msgChannel.send(embed);
+    } else {
+        role.guild.createChannel("logs",{ type: "text" , permissionOverwrites: [{id: role.guild.id, deny: ["VIEW_CHANNEL"]}]});
+        await sleep(1000);
+        msgChannel = role.guild.channels.find(ch => ch.name === "logs");
+        msgChannel.setTopic("Unknown Bot's log channel");
+        const embed = new Discord.RichEmbed()
+        .setColor(0x3fb5a1)
+        .setTimestamp()
+        .setTitle("New role has been created")
+        .addField("Role name", role.name)
+        msgChannel.send(embed);
+    }
+});
+
+client.on("roleDelete", async role => {
+    const logsChannel = findChannel("logs", role);
+    let msgChannel = role.guild.channels.find(ch => ch.name === "logs");
+
+    if(logsChannel) {
+        const embed = new Discord.RichEmbed()
+        .setColor(0x3fb5a1)
+        .setTimestamp()
+        .setTitle("Role has been deleted")
+        .addField("Role name", role.name)
+        msgChannel.send(embed);
+    } else {
+        role.guild.createChannel("logs",{ type: "text" , permissionOverwrites: [{id: role.guild.id, deny: ["VIEW_CHANNEL"]}]});
+        await sleep(1000);
+        msgChannel = role.guild.channels.find(ch => ch.name === "logs");
+        msgChannel.setTopic("Unknown Bot's log channel");
+        const embed = new Discord.RichEmbed()
+        .setColor(0x3fb5a1)
+        .setTimestamp()
+        .setTitle("Role has been deleted")
+        .addField("Role name", role.name)
+        msgChannel.send(embed);
+    }
+});
+
+client.login(config.token);
+
 
 client.login(process.env.BOT_TOKEN);
