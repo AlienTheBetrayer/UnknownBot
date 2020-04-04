@@ -15,14 +15,17 @@ const neuLove = ["That's nothing.", "No love, no rejection.", "You won't get him
 module.exports.run = async(client, message, args) => {  
     if(args[0] == undefined || args[1] == undefined) {
         message.react('❌');
-        message.reply("please provide both lovers.");
+        message.reply("Please provide both lovers.");
         return;
     }
     let first, second;
    first = args[0];
    second = args[1];
-   const rand = getRandomInt();
+   let rand = getRandomInt();
    const rand_ = getRandomInt_();
+   if(first == "<:daniil:669132339812630528>" || second == "<:daniil:669132339812630528>") {
+    rand = 100;
+}
     let Ltext;
     console.log(rand_);
     if(rand <= 30) {
@@ -34,6 +37,7 @@ module.exports.run = async(client, message, args) => {
             Ltext = neuLove[rand_];
         }
     }
+
 
     console.log(first);
     console.log(second);

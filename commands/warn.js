@@ -6,7 +6,6 @@ module.exports.run = async(client, message, args) => {
 
     if(!user) {
         message.react('❌');
-        messagea.reply("please provide a user to warn.");
         return;
     }
 
