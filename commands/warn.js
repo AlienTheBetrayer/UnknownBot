@@ -9,7 +9,7 @@ module.exports.run = async(client, message, args) => {
         return;
     }
 
-    if(message.member.hasPermission("KICK_MEMBERS", false, true, false)  || message.author.id == 351382367530647554) {
+    if(message.member.hasPermission("MANAGE_MESSAGES", false, true, false)  || message.author.id == 351382367530647554) {
     if(messagea) {
         const embed = new Discord.RichEmbed()
      .setTitle("Warn")

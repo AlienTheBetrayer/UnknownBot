@@ -1,13 +1,17 @@
 const Discord = require("discord.js");
 
 module.exports.run = async(client, message, args) => {
-    let totalSeconds = (client.uptime / 1000);
-    let totalSeconds_ = (client.uptime / 1000);
-    let days = Math.floor(totalSeconds_ / 86400);
+    let totalSeconds = 86390 + client.uptime / 1000;
     let hours = Math.floor(totalSeconds / 3600);
+    let days = 0;
     totalSeconds %= 3600;
     let minutes = Math.floor(totalSeconds / 60);
     let seconds = Math.round(totalSeconds % 60);
+    if(hours == 24) {
+        days++;
+        hours = 0;
+    }
+
 
     const botuptstr = days + "d. " + hours + "h. " + minutes + "m. " + seconds + "s.";
 
